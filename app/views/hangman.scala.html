@@ -1,0 +1,17 @@
+@(state:  uk.gov.hangman.model.Hangman, gameId: Long)
+
+@main("Hangman"){
+    <h1>Hangman - @{state.status}</h1>
+
+    @for(letter <- state.word) {
+        <span>@letter</span>
+    }
+
+    You have @{state.remainingGuesses} guesses remaining
+
+    <br />
+
+    @for(alpha <- 'A' to 'Z') {
+        <a href="@gameId/guess/@alpha">@alpha</a>
+    }
+}
